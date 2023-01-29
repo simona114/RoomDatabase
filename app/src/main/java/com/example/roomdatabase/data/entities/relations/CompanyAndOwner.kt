@@ -9,7 +9,7 @@ import com.example.roomdatabase.data.entities.Owner
 class CompanyAndOwner (
     @Embedded  val company: Company,
     @Relation(
-        parentColumn = "companyName",
-        entityColumn = "companyName"
+        parentColumn = "company_name",
+        entityColumn = "company_name"
     )  val owner: Owner
 )
