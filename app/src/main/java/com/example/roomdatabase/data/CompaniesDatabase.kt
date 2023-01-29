@@ -14,7 +14,7 @@ import kotlinx.coroutines.internal.synchronized
 
 @Database(
     entities = [Company::class, Owner::class, Employee::class],
-    version = 4
+    version = 5
 )
 abstract class CompaniesDatabase : RoomDatabase() {
 
@@ -32,9 +32,10 @@ abstract class CompaniesDatabase : RoomDatabase() {
                     context.applicationContext,
                     CompaniesDatabase::class.java,
                     "companies_db"
-                ).build().also {
-                    INSTANCE = it
-                }
+                ).fallbackToDestructiveMigration()
+                    .build().also {
+                        INSTANCE = it
+                    }
             }
         }
     }

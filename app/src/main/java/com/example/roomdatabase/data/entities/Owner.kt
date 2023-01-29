@@ -10,6 +10,6 @@ class Owner(
     val id: Int?,
     @ColumnInfo(name = "owner_name")
     val ownerName: String?,
-    @ColumnInfo(name = "company_name")
-    val companyName: String?,
+    @ColumnInfo(name = "company_id")
+    val companyId: Int?,
 )

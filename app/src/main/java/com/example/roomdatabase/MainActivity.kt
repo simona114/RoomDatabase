@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val dao = CompaniesDatabase.getDatabase(this).companyDao()
 
-        val owners = listOf(Owner(1, "Mike Smith", "E-speed"), Owner(2,"David White", "SAT Services"))
+        val owners = listOf(Owner(1, "Mike Smith", 1), Owner(2,"David White", 2))
         val companies = listOf(Company(1, "E-speed"), Company(2, "SAT Services"))
 
         lifecycleScope.launch {
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 dao.addCompany(it)
             }
 
-            val companyWithOwner  = dao.getCompanyAndOwnerWithCompanyName("E-speed")
+            val companyWithOwner  = dao.getCompanyAndOwnerWithCompanyId(1)
             Log.d("main", "onCreate: ${companyWithOwner.first().owner.ownerName}")
         }
     }

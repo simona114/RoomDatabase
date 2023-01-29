@@ -1,9 +1,7 @@
 package com.example.roomdatabase.data.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.roomdatabase.data.entities.Company
-import com.example.roomdatabase.data.entities.Employee
 import com.example.roomdatabase.data.entities.Owner
 import com.example.roomdatabase.data.entities.relations.CompanyAndOwner
 
@@ -17,6 +15,6 @@ interface CompanyDao {
     suspend fun addOwner(owner: Owner)
 
     @Transaction
-    @Query("SELECT * FROM companies WHERE company_name = :companyName")
-    suspend fun getCompanyAndOwnerWithCompanyName(companyName:String): List<CompanyAndOwner>
+    @Query("SELECT * FROM companies WHERE company_id = :companyId")
+    suspend fun getCompanyAndOwnerWithCompanyId(companyId: Int): List<CompanyAndOwner>
 }
