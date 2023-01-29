@@ -10,5 +10,7 @@ class Employee(
     val id: Int?,
     @ColumnInfo(name = "name")
     val name: String?,
+    @ColumnInfo(name = "company_id")
+    val companyId: Int?,
 
 )

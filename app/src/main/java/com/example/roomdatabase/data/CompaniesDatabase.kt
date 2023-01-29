@@ -14,7 +14,7 @@ import kotlinx.coroutines.internal.synchronized
 
 @Database(
     entities = [Company::class, Owner::class, Employee::class],
-    version = 5
+    version = 6
 )
 abstract class CompaniesDatabase : RoomDatabase() {
 

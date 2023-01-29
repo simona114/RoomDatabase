@@ -11,6 +11,8 @@ class Company(
     val id: Int?,
     @ColumnInfo(name = "company_name")
     val companyName: String?,
-//    @ColumnInfo(name = "owner_name")
-//    val ownerName: String?,
+    @ColumnInfo(name = "owner_id")
+    val ownerId: Int?,
 )
+
+
