@@ -9,12 +9,14 @@ import com.example.roomdatabase.data.dao.EmployeeDao
 import com.example.roomdatabase.data.entities.Company
 import com.example.roomdatabase.data.entities.Employee
 import com.example.roomdatabase.data.entities.Owner
+import com.example.roomdatabase.data.entities.Project
+import com.example.roomdatabase.data.entities.relations.EmployeeProjectCrossRef
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
 
 @Database(
-    entities = [Company::class, Owner::class, Employee::class],
-    version = 6
+    entities = [Company::class, Owner::class, Employee::class, Project::class, EmployeeProjectCrossRef::class],
+    version = 9
 )
 abstract class CompaniesDatabase : RoomDatabase() {
 
