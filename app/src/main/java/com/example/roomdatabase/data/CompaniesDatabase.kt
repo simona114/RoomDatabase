@@ -4,21 +4,21 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.roomdatabase.data.entities.User
+import com.example.roomdatabase.data.entities.Employee
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
-abstract class UsersDatabase : RoomDatabase() {
+@Database(entities = [Employee::class], version = 1, exportSchema = false)
+abstract class CompaniesDatabase : RoomDatabase() {
 
-    abstract fun userDao(): UserDao
+    abstract fun employeeDao(): EmployeeDao
 
     companion object {
         @Volatile()
-        private var INSTANCE: UsersDatabase? = null
+        private var INSTANCE: CompaniesDatabase? = null
 
         @OptIn(InternalCoroutinesApi::class)
-        fun getDatabase(context: Context): UsersDatabase {
+        fun getDatabase(context: Context): CompaniesDatabase {
             val tempInstance = INSTANCE
 
             /* Returns the instance if it already exists */
@@ -28,7 +28,7 @@ abstract class UsersDatabase : RoomDatabase() {
 
             /* Create a new instance */
             synchronized(this){
-                var instance = Room.databaseBuilder(context.applicationContext, UsersDatabase::class.java, "users_database").build()
+                var instance = Room.databaseBuilder(context.applicationContext, CompaniesDatabase::class.java, "users_database").build()
                 instance = INSTANCE!!
                 return instance
             }
