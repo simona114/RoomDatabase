@@ -8,9 +8,7 @@ import androidx.room.PrimaryKey
 class Employee(
     @PrimaryKey(autoGenerate = true)
     val id: Int?,
-    @ColumnInfo(name = "first_name")
-    val firstName: String?,
-    @ColumnInfo(name = "last_name")
-    val lastName: String?,
-    val age: Int?
+    @ColumnInfo(name = "name")
+    val name: String?,
+
 )

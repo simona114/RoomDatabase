@@ -1,4 +1,4 @@
-package com.example.roomdatabase.data
+package com.example.roomdatabase.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
