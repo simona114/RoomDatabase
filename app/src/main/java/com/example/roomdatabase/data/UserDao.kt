@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.roomdatabase.data.User
+import com.example.roomdatabase.data.entities.User
 
 @Dao
 interface UserDao {
@@ -14,5 +14,5 @@ interface UserDao {
     suspend fun addUser(user: User)
 
     @Query("SELECT * FROM users ORDER BY id ASC")
-    suspend fun readAllUsers(): LiveData<List<User>>
+    fun readAllUsers(): LiveData<List<User>>
 }
