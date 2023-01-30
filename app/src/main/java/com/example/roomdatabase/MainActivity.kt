@@ -1,8 +1,8 @@
 package com.example.roomdatabase
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.roomdatabase.data.CompaniesDatabase
 import com.example.roomdatabase.data.entities.Company
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                 dao.addProject(it)
             }
 
-            employeeProjectRelations.forEach{
+            employeeProjectRelations.forEach {
                 dao.insertEmployeeProjectCrossRef(it)
             }
 
@@ -58,6 +58,19 @@ class MainActivity : AppCompatActivity() {
 
             val companyWithEmployees = dao.getCompanyWithEmployees(1)
             Log.d("main", "onCreate: ${companyWithEmployees.employees.size}")
+
+            val projectsOfEmployee = dao.getProjectsOfEmployee(1)
+            projectsOfEmployee.forEach { employeeWithProjects ->
+                employeeWithProjects.project.forEach { project ->
+                    Log.d("main", "onCreate: ${project.name}")
+                }
+            }
+            val employeesOfProject = dao.getEmployeesOfProject(3)
+            employeesOfProject.forEach { projectWithEmployees ->
+                projectWithEmployees.employees.forEach { employee ->
+                    Log.d("main", "onCreate: ${employee.name}")
+                }
+            }
         }
     }
 }

@@ -12,8 +12,8 @@ Helper class that helps us query single employee and get all the projects that t
 data class EmployeeWithProjects(
     @Embedded val employee: Employee,
     @Relation(
-        parentColumn = "employeeId",
-        entityColumn = "employeeId",
+        parentColumn = "employee_id",
+        entityColumn = "project_id",
         associateBy = Junction(EmployeeProjectCrossRef::class)
     )
     val project: List<Project>

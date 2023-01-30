@@ -33,13 +33,11 @@ interface CompanyDao {
     @Query("SELECT * FROM companies WHERE company_id = :companyId")
     suspend fun getCompanyWithEmployees(companyId: Int): CompanyWithEmployees
 
-    //todo:fix
-//    @Transaction
-//    @Query("SELECT * FROM projects WHERE id = :projectId")
-//    suspend fun getEmployeesOfProject(projectId: Int): List<ProjectWithEmployees>
-//
-//    @Transaction
-//    @Query("SELECT * FROM employees WHERE id = :employeeId")
-//    suspend fun getProjectsOfEmployee(employeeId: Int): List<EmployeeWithProjects>
+    @Transaction
+    @Query("SELECT * FROM projects WHERE project_id = :projectId")
+    suspend fun getEmployeesOfProject(projectId: Int): List<ProjectWithEmployees>
 
+    @Transaction
+    @Query("SELECT * FROM employees WHERE employee_id = :employeeId")
+    suspend fun getProjectsOfEmployee(employeeId: Int): List<EmployeeWithProjects>
 }

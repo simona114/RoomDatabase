@@ -7,8 +7,9 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "employees")
 class Employee(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "employee_id")
+    val employeeId: Int,
+    @ColumnInfo(name = "employee_name")
     val name: String?,
     @ColumnInfo(name = "company_id")
     val companyId: Int?,
