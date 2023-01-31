@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val dao = CompaniesDatabase.getDatabase(this).companyDao()
+        val dao = CompaniesDatabase.getDatabase(this).getCompanyDao()
 
         val owners = listOf(Owner(1, "Mike Smith", 1), Owner(2, "David White", 2))
         val companies = listOf(Company(1, "E-speed", 1), Company(2, "SAT Services", 2))

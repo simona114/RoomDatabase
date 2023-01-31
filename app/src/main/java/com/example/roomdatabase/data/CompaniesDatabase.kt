@@ -20,8 +20,8 @@ import kotlinx.coroutines.internal.synchronized
 )
 abstract class CompaniesDatabase : RoomDatabase() {
 
-    abstract fun companyDao(): CompanyDao
-    abstract fun employeeDao(): EmployeeDao
+    abstract fun getCompanyDao(): CompanyDao
+    abstract fun getEmployeeDao(): EmployeeDao
 
     companion object {
         @Volatile
