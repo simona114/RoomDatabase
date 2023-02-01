@@ -2,6 +2,7 @@ package com.example.roomdatabase
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.roomdatabase.data.CompaniesDatabase
@@ -10,12 +11,17 @@ import com.example.roomdatabase.data.entities.Employee
 import com.example.roomdatabase.data.entities.Owner
 import com.example.roomdatabase.data.entities.Project
 import com.example.roomdatabase.data.entities.relations.EmployeeProjectCrossRef
+import com.example.roomdatabase.ui.viewmodels.EmployeeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val employeeViewModel: EmployeeViewModel by viewModels()
 
         val dao = CompaniesDatabase.getDatabase(this).getCompanyDao()
 
@@ -72,5 +78,14 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+
+        //todo:move to fragment
+//        employeeViewModel.employeesLiveData.observe(this) { savedEmployees ->
+//            Log.d("main", "onCreate: Employees from database")
+//            savedEmployees.forEach {
+//                Log.d("main", "onCreate: ${it.name} ")
+//            }
+//        }
     }
 }
