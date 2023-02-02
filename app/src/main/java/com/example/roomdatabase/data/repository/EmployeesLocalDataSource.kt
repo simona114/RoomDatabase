@@ -5,7 +5,7 @@ import com.example.roomdatabase.data.entities.Employee
 import javax.inject.Inject
 
 class EmployeesLocalDataSource @Inject constructor(val dao: EmployeeDao){
-    fun getEmployees() = dao.readAllEmployees().value
+    fun getEmployees() = dao.readAllEmployees()
 
     suspend fun saveEmployee(employee: Employee){
         dao.addEmployee(employee)

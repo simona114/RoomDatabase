@@ -94,14 +94,6 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
-
-        //todo:move to fragment
-//        employeeViewModel.employeesLiveData.observe(this) { savedEmployees ->
-//            Log.d("main", "onCreate: Employees from database")
-//            savedEmployees.forEach {
-//                Log.d("main", "onCreate: ${it.name} ")
-//            }
-//        }
     }
 
 
