@@ -1,3 +1,3 @@
 # RoomDatabase
 
-An application that demonstrates Room database along with Hilt
+Application that demonstrates Room database, along with Hilt
